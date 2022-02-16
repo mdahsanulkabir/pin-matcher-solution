@@ -1,4 +1,16 @@
-function generatePin(){
+function getPin(){
     const pin = Math.round(Math.random()*10000);
-    console.log(pin);
+    const pinString = pin + '';
+    if(pinString.length==4){
+        return pinString;
+    }
+    else{
+        return getPin();
+    }
+
+}
+
+function generatePin(){
+    const pin = getPin();
+    document.getElementById('display-pin').value = pin;
 }
